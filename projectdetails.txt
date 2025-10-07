@@ -1,0 +1,73 @@
+Collections:
+
+Users
+
+Fields:
+
+username (string, unique)
+
+email (string, unique)
+
+passwordHash (string, for OAuth / bcrypt)
+
+experienceLevel (string: beginner, intermediate, advanced)
+
+preferredTerrain (array: trail types, e.g., forest, mountain, paved)
+
+favoriteTrails (array of trail IDs)
+
+createdAt (date)
+
+Trails
+
+Fields:
+
+name (string)
+
+location (string or coordinates)
+
+type (string: hiking, cycling, multi-use)
+
+difficulty (string: easy, moderate, hard)
+
+length (number, miles/kilometers)
+
+elevationGain (number)
+
+description (string)
+
+Gear
+
+Fields:
+
+name (string)
+
+type (string: hiking, cycling, camping)
+
+purchaseDate (date)
+
+lastUsed (date)
+
+condition (string: new, good, worn, broken)
+
+ownerId (ref to Users)
+
+notes (string)
+
+Wildlife Sightings
+
+Fields:
+
+trailId (ref to Trails)
+
+species (string)
+
+quantity (number)
+
+date (date)
+
+location (string or GPS coordinates)
+
+notes (string)
+
+photoUrl (string)

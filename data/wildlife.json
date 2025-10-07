@@ -1,0 +1,52 @@
+[
+  {
+    "sightingId": 1,
+    "species": "Mule Deer",
+    "location": "Rock Canyon, Provo, UT",
+    "date": "2025-10-01",
+    "time": "08:30",
+    "observer": "Holly Briggs",
+    "count": 3,
+    "trailId": 5
+  },
+  {
+    "sightingId": 2,
+    "species": "Red-tailed Hawk",
+    "location": "Y Mountain Trail, Provo, UT",
+    "date": "2025-10-02",
+    "time": "10:15",
+    "observer": "Holly Briggs",
+    "count": 1,
+    "trailId": 1
+  },
+  {
+    "sightingId": 3,
+    "species": "Mountain Lion",
+    "location": "Squaw Peak Trail, Provo, UT",
+    "date": "2025-09-30",
+    "time": "06:45",
+    "observer": "Holly Briggs",
+    "count": 1,
+    "trailId": 2
+  },
+  {
+    "sightingId": 4,
+    "species": "Black Bear",
+    "location": "American Fork Canyon, UT",
+    "date": "2025-10-03",
+    "time": "07:50",
+    "observer": "Holly Briggs",
+    "count": 2,
+    "trailId": 4
+  },
+  {
+    "sightingId": 5,
+    "species": "Great Blue Heron",
+    "location": "Bridal Veil Falls, Provo Canyon, UT",
+    "date": "2025-10-01",
+    "time": "09:00",
+    "observer": "Holly Briggs",
+    "count": 1,
+    "trailId": 3
+  }
+]

@@ -1,0 +1,52 @@
+[
+  {
+    "trailId": 1,
+    "name": "Y Mountain Trail",
+    "location": "Provo, UT",
+    "distance_miles": 2.5,
+    "difficulty": "Moderate",
+    "type": "Hiking",
+    "elevation_gain_ft": 1000,
+    "rating": 4.7
+  },
+  {
+    "trailId": 2,
+    "name": "Squaw Peak Trail",
+    "location": "Provo, UT",
+    "distance_miles": 3.2,
+    "difficulty": "Moderate",
+    "type": "Hiking",
+    "elevation_gain_ft": 1200,
+    "rating": 4.6
+  },
+  {
+    "trailId": 3,
+    "name": "Bridal Veil Falls Trail",
+    "location": "Provo Canyon, UT",
+    "distance_miles": 1.0,
+    "difficulty": "Easy",
+    "type": "Hiking",
+    "elevation_gain_ft": 200,
+    "rating": 4.8
+  },
+  {
+    "trailId": 4,
+    "name": "Mt. Timpanogos Trail",
+    "location": "American Fork Canyon, UT",
+    "distance_miles": 14.0,
+    "difficulty": "Hard",
+    "type": "Hiking",
+    "elevation_gain_ft": 7000,
+    "rating": 4.9
+  },
+  {
+    "trailId": 5,
+    "name": "Rock Canyon Trail",
+    "location": "Provo, UT",
+    "distance_miles": 3.0,
+    "difficulty": "Moderate",
+    "type": "Hiking",
+    "elevation_gain_ft": 900,
+    "rating": 4.5
+  }
+]
