@@ -45,7 +45,7 @@ router.get('/:id', trailIdParamRules(), validate, trailsController.getSingleTrai
 // #swagger.responses[401] = { description: 'Unauthorized' }
 // #swagger.responses[422] = { description: 'Validation error' }
 // #swagger.responses[500] = { description: 'Internal server error' }
-router.post('/:id', trailIdParamRules(), createTrailRules(), validate, trailsController.createTrail);
+router.post('/', trailIdParamRules(), createTrailRules(), validate, trailsController.createTrail);
 // router.post('/:id', requireAuth, trailIdParamRules(), updateTrailRules(), validate, trailsController.createTrail);
 
 /**
