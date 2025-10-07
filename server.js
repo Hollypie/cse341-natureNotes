@@ -2,13 +2,13 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const swaggerUi = require('swagger-ui-express');
-const swaggerDocument = require('./swagger_output.json');
+// const swaggerDocument = require('./swagger_output.json');
 const mongodb = require('./data/database');
-const passport = require('./config/passport');
-const sessionConfig = require('./config/session');
+// const passport = require('./config/passport');
+// const sessionConfig = require('./config/session');
 
 const app = express();
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3000;
 
 // Trust proxy for secure cookies
 // app.set('trust proxy', 1);

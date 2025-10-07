@@ -4,7 +4,7 @@ const { ObjectId } = require('mongodb');
 // GET all wildlife sightings
 const getAllSightings = async (req, res) => {
   try {
-    const sightings = await mongodb.getDb().collection('wildlife_sightings').find().toArray();
+    const sightings = await mongodb.getDb().collection('wildlife').find().toArray();
     res.status(200).json(sightings);
   } catch (err) {
     res.status(500).json({ message: 'Fetching sightings failed.' });
@@ -21,7 +21,7 @@ const getSingleSighting = async (req, res) => {
       return res.status(400).json({ message: 'Invalid sighting ID format.' });
     }
 
-    const sighting = await mongodb.getDb().collection('wildlife_sightings').findOne({ _id: sightingId });
+    const sighting = await mongodb.getDb().collection('wildlife').findOne({ _id: sightingId });
     if (!sighting) return res.status(404).json({ message: 'Sighting not found.' });
 
     res.status(200).json(sighting);
@@ -49,7 +49,7 @@ const createSighting = async (req, res) => {
       trailId: Number(trailId)
     };
 
-    const response = await mongodb.getDb().collection('wildlife_sightings').insertOne(sighting);
+    const response = await mongodb.getDb().collection('wildlife').insertOne(sighting);
 
     if (response.acknowledged) {
       res.status(201).json({ id: response.insertedId });
@@ -90,7 +90,7 @@ const updateSighting = async (req, res) => {
     };
 
     const response = await mongodb.getDb()
-      .collection('wildlife_sightings')
+      .collection('wildlife')
       .updateOne({ _id: sightingId }, updateDoc);
 
     if (response.matchedCount === 0) {
@@ -113,7 +113,7 @@ const deleteSighting = async (req, res) => {
       return res.status(400).json({ message: 'Invalid sighting ID format.' });
     }
 
-    const response = await mongodb.getDb().collection('wildlife_sightings').deleteOne({ _id: sightingId });
+    const response = await mongodb.getDb().collection('wildlife').deleteOne({ _id: sightingId });
 
     if (response.deletedCount > 0) {
       res.status(204).send();
