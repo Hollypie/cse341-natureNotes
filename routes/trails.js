@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const trailsController = require('../controllers/trails');
-// const { createTrailRules, updateTrailRules, trailIdParamRules } = require('../middleware/trails.js');
-// const { validate } = require('../middleware/validator.js');
+const { createTrailRules, updateTrailRules, trailIdParamRules } = require('../middleware/trails.js');
+const { validate } = require('../middleware/validator.js');
 // const { requireAuth } = require('../middleware/authenticate.js');
 
 /**
@@ -27,8 +27,7 @@ router.get('/', trailsController.getAllTrails);
 // #swagger.responses[400] = { description: 'Invalid ID format' }
 // #swagger.responses[404] = { description: 'Trail not found' }
 // #swagger.responses[500] = { description: 'Internal server error' }
-router.get('/:id', trailsController.getSingleTrail);
-// router.get('/:id', trailIdParamRules(), validate, trailsController.getSingleTrail);
+router.get('/:id', trailIdParamRules(), validate, trailsController.getSingleTrail);
 
 /**
  * POST create a new trail
@@ -46,7 +45,7 @@ router.get('/:id', trailsController.getSingleTrail);
 // #swagger.responses[401] = { description: 'Unauthorized' }
 // #swagger.responses[422] = { description: 'Validation error' }
 // #swagger.responses[500] = { description: 'Internal server error' }
-router.post('/:id', trailsController.createTrail);
+router.post('/:id', trailIdParamRules(), createTrailRules(), validate, trailsController.createTrail);
 // router.post('/:id', requireAuth, trailIdParamRules(), updateTrailRules(), validate, trailsController.createTrail);
 
 /**
@@ -67,7 +66,7 @@ router.post('/:id', trailsController.createTrail);
 // #swagger.responses[404] = { description: 'Trail not found' }
 // #swagger.responses[422] = { description: 'Validation error' }
 // #swagger.responses[500] = { description: 'Internal server error' }
-router.put('/:id', trailsController.updateTrail);
+router.put('/:id', trailIdParamRules(), updateTrailRules(), validate, trailsController.updateTrail);
 // router.put('/:id', requireAuth, trailIdParamRules(), updateTrailRules(), validate, trailsController.updateTrail);
 
 /**
@@ -81,7 +80,7 @@ router.put('/:id', trailsController.updateTrail);
 // #swagger.responses[401] = { description: 'Unauthorized' }
 // #swagger.responses[404] = { description: 'Trail not found' }
 // #swagger.responses[500] = { description: 'Internal server error' }
-router.delete('/:id', trailsController.deleteTrail);
+router.delete('/:id', trailIdParamRules(), validate, trailsController.deleteTrail);
 // router.delete('/:id', requireAuth, trailIdParamRules(), validate, trailsController.deleteTrail);
 
 module.exports = router;
