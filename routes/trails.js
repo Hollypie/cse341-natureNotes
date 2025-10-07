@@ -46,7 +46,7 @@ router.get('/:id', trailIdParamRules(), validate, trailsController.getSingleTrai
 // #swagger.responses[422] = { description: 'Validation error' }
 // #swagger.responses[500] = { description: 'Internal server error' }
 router.post('/', createTrailRules(), validate, trailsController.createTrail);
-// router.post('/', requireAuth, trailIdParamRules(), updateTrailRules(), validate, trailsController.createTrail);
+// router.post('/:id', requireAuth, trailIdParamRules(), updateTrailRules(), validate, trailsController.createTrail);
 
 /**
  * PUT update a trail by ID
