@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const swaggerUi = require('swagger-ui-express');
-// const swaggerDocument = require('./swagger_output.json');
+const swaggerDocument = require('./swagger_output.json');
 const mongodb = require('./data/database');
 // const passport = require('./config/passport');
 // const sessionConfig = require('./config/session');
@@ -23,7 +23,7 @@ app.use(express.json());
 // Routes
 app.use('/', require('./routes/index'));
 // app.use('/', require('./routes/auth'));
-// app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // MongoDB connection and start server
 mongodb.initDb(err => {

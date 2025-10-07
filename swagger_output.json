@@ -1,0 +1,641 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Nature Notes API",
+    "description": "API for managing trails logs, gear, and wildlife sightings",
+    "version": "1.0.0"
+  },
+  "host": "cse341-naturenotes.onrender.com",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Trails",
+      "description": "Endpoints to manage hiking and cycling trails"
+    },
+    {
+      "name": "Wildlife",
+      "description": "Endpoints to manage wildlife sightings"
+    }
+  ],
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "species": {
+                  "example": "Mule Deer"
+                },
+                "location": {
+                  "example": "Rock Canyon, Provo, UT"
+                },
+                "date": {
+                  "example": "2025-10-07"
+                },
+                "time": {
+                  "example": "07:30"
+                },
+                "observer": {
+                  "example": "John Doe"
+                },
+                "count": {
+                  "example": 3
+                },
+                "trailId": {
+                  "example": "507f1f77bcf86cd799439011"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/trails/": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/trails/{id}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "Y Mountain Trail"
+                },
+                "location": {
+                  "example": "Provo, UT"
+                },
+                "distance_miles": {
+                  "example": 3.5
+                },
+                "difficulty": {
+                  "example": "Moderate"
+                },
+                "type": {
+                  "example": "Hiking"
+                },
+                "elevation_gain_ft": {
+                  "example": 800
+                },
+                "rating": {
+                  "example": 4.5
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "Y Mountain Trail"
+                },
+                "location": {
+                  "example": "Provo, UT"
+                },
+                "distance_miles": {
+                  "example": 3.5
+                },
+                "difficulty": {
+                  "example": "Moderate"
+                },
+                "type": {
+                  "example": "Hiking"
+                },
+                "elevation_gain_ft": {
+                  "example": 800
+                },
+                "rating": {
+                  "example": 4.5
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/wildlife/": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "species": {
+                  "example": "Mule Deer"
+                },
+                "location": {
+                  "example": "Rock Canyon, Provo, UT"
+                },
+                "date": {
+                  "example": "2025-10-07"
+                },
+                "time": {
+                  "example": "07:30"
+                },
+                "observer": {
+                  "example": "John Doe"
+                },
+                "count": {
+                  "example": 3
+                },
+                "trailId": {
+                  "example": "507f1f77bcf86cd799439011"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/wildlife/{id}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "species": {
+                  "example": "Mule Deer"
+                },
+                "location": {
+                  "example": "Rock Canyon, Provo, UT"
+                },
+                "date": {
+                  "example": "2025-10-07"
+                },
+                "time": {
+                  "example": "07:30"
+                },
+                "observer": {
+                  "example": "John Doe"
+                },
+                "count": {
+                  "example": 3
+                },
+                "trailId": {
+                  "example": "507f1f77bcf86cd799439011"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/{id}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "Y Mountain Trail"
+                },
+                "location": {
+                  "example": "Provo, UT"
+                },
+                "distance_miles": {
+                  "example": 3.5
+                },
+                "difficulty": {
+                  "example": "Moderate"
+                },
+                "type": {
+                  "example": "Hiking"
+                },
+                "elevation_gain_ft": {
+                  "example": 800
+                },
+                "rating": {
+                  "example": 4.5
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "species": {
+                  "example": "Mule Deer"
+                },
+                "location": {
+                  "example": "Rock Canyon, Provo, UT"
+                },
+                "date": {
+                  "example": "2025-10-07"
+                },
+                "time": {
+                  "example": "07:30"
+                },
+                "observer": {
+                  "example": "John Doe"
+                },
+                "count": {
+                  "example": 3
+                },
+                "trailId": {
+                  "example": "507f1f77bcf86cd799439011"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Trail": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "Y Mountain Trail"
+        },
+        "type": {
+          "type": "string",
+          "example": "Hiking"
+        },
+        "difficulty": {
+          "type": "string",
+          "example": "Moderate"
+        },
+        "length": {
+          "type": "number",
+          "example": 3.5
+        },
+        "elevationGain": {
+          "type": "number",
+          "example": 800
+        },
+        "location": {
+          "type": "string",
+          "example": "Provo, UT"
+        },
+        "description": {
+          "type": "string",
+          "example": "Popular trail with great views of Provo and BYU."
+        }
+      }
+    },
+    "WildlifeSighting": {
+      "type": "object",
+      "properties": {
+        "species": {
+          "type": "string",
+          "example": "Mule Deer"
+        },
+        "count": {
+          "type": "number",
+          "example": 3
+        },
+        "location": {
+          "type": "string",
+          "example": "Rock Canyon, Provo, UT"
+        },
+        "date": {
+          "type": "string",
+          "example": "2025-10-07"
+        },
+        "notes": {
+          "type": "string",
+          "example": "Saw a small group near the trailhead early morning."
+        }
+      }
+    }
+  }
+}

@@ -17,5 +17,8 @@
     "mongodb": "^6.20.0",
     "passport": "^0.7.0",
     "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "swagger-autogen": "^2.23.7"
   }
 }
