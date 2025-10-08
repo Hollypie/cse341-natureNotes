@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const wildlifeController = require('../controllers/wildlife');
-// const { createWildlifeRules, updateWildlifeRules, wildlifeIdParamRules } = require('../middleware/wildlife.js');
-// const { validate } = require('../middleware/validator.js');
+const { createWildlifeRules, updateWildlifeRules, wildlifeIdParamRules } = require('../middleware/wildlife.js');
+const { validate } = require('../middleware/validator.js');
 // const { requireAuth } = require('../middleware/authenticate.js');
 
 /**
@@ -27,8 +27,7 @@ router.get('/', wildlifeController.getAllSightings);
 // #swagger.responses[400] = { description: 'Invalid ID format' }
 // #swagger.responses[404] = { description: 'Sighting not found' }
 // #swagger.responses[500] = { description: 'Internal server error' }
-router.get('/:id', wildlifeController.getSingleSighting);
-// router.get('/:id', wildlifeIdParamRules(), validate, wildlifeController.getSingleSighting);
+router.get('/:id', wildlifeIdParamRules(), validate, wildlifeController.getSingleSighting);
 
 /**
  * POST create a new wildlife sighting
@@ -46,8 +45,7 @@ router.get('/:id', wildlifeController.getSingleSighting);
 // #swagger.responses[401] = { description: 'Unauthorized' }
 // #swagger.responses[422] = { description: 'Validation error' }
 // #swagger.responses[500] = { description: 'Internal server error' }
-router.post('/', wildlifeController.createSighting);
-// router.post('/', createWildlifeRules(), validate, wildlifeController.createSighting);
+router.post('/', createWildlifeRules(), validate, wildlifeController.createSighting);
 
 /**
  * PUT update a wildlife sighting by ID
@@ -67,7 +65,7 @@ router.post('/', wildlifeController.createSighting);
 // #swagger.responses[404] = { description: 'Sighting not found' }
 // #swagger.responses[422] = { description: 'Validation error' }
 // #swagger.responses[500] = { description: 'Internal server error' }
-router.put('/:id', wildlifeController.updateSighting);
+router.put('/:id', wildlifeIdParamRules(), updateWildlifeRules(), validate, wildlifeController.updateSighting);
 // router.put('/:id', requireAuth, wildlifeIdParamRules(), updateWildlifeRules(), validate, wildlifeController.updateSighting);
 
 /**
@@ -81,7 +79,7 @@ router.put('/:id', wildlifeController.updateSighting);
 // #swagger.responses[401] = { description: 'Unauthorized' }
 // #swagger.responses[404] = { description: 'Sighting not found' }
 // #swagger.responses[500] = { description: 'Internal server error' }
-router.delete('/:id', wildlifeController.deleteSighting);
+router.delete('/:id', wildlifeIdParamRules(), validate, wildlifeController.deleteSighting);
 // router.delete('/:id', requireAuth, wildlifeIdParamRules(), validate, wildlifeController.deleteSighting);
 
 module.exports = router;
