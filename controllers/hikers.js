@@ -14,13 +14,10 @@ const getAllHikers = async (req, res) => {
 // GET a single hiker by ID
 const getSingleHiker = async (req, res) => {
   try {
-    let hikerId;
-    try {
-      hikerId = new ObjectId(req.params.id);
-    } catch {
+    if (!ObjectId.isValid(req.params.id)) {
       return res.status(400).json({ message: 'Invalid hiker ID format.' });
     }
-
+    const hikerId = new ObjectId(req.params.id);
     const hiker = await mongodb.getDb().collection('hikers').findOne({ _id: hikerId });
     if (!hiker) return res.status(404).json({ message: 'Hiker not found.' });
 
@@ -45,19 +42,23 @@ const createHiker = async (req, res) => {
       bio
     } = req.body;
 
-    if (!firstName || !lastName|| !username || !email || !location || !memberSince || !isAdmin || !trailCount || !bio) {
+    if (
+      !firstName || !lastName || !username || !email || !location ||
+      !memberSince || isAdmin === undefined || isAdmin === null || !trailCount || !bio
+    ) {
       return res.status(400).json({ message: 'All fields are required.' });
     }
 
-    const trail = {
-        firstName,
-        lastName,
-        username,
-        location,
-        memberSince,
-        isAdmin,
-        trailCount,
-        bio
+    const hiker = {
+      firstName,
+      lastName,
+      username,
+      email,
+      location,
+      memberSince,
+      isAdmin: isAdmin === true || isAdmin === 'true',
+      trailCount,
+      bio
     };
 
     const response = await mongodb.getDb().collection('hikers').insertOne(hiker);
@@ -75,16 +76,17 @@ const createHiker = async (req, res) => {
 // UPDATE an existing hiker
 const updateHiker = async (req, res) => {
   try {
-    let hikerId;
-    try {
-      hikerId = new ObjectId(req.params.id);
-    } catch {
+    if (!ObjectId.isValid(req.params.id)) {
       return res.status(400).json({ message: 'Invalid hiker ID format.' });
     }
+    const hikerId = new ObjectId(req.params.id);
 
-    const { firstName, lastName, username, location, memberSince, isAdmin, trailCount, bio } = req.body;
+    const { firstName, lastName, username, email, location, memberSince, isAdmin, trailCount, bio } = req.body;
 
-    if (!firstName || !lastName|| !username || !email || !location || !memberSince || !isAdmin || !trailCount || !bio) {
+    if (
+      !firstName || !lastName || !username || !email || !location ||
+      !memberSince || isAdmin === undefined || isAdmin === null || !trailCount || !bio
+    ) {
       return res.status(400).json({ message: 'All fields are required.' });
     }
 
@@ -93,9 +95,10 @@ const updateHiker = async (req, res) => {
         firstName,
         lastName,
         username,
+        email,
         location,
         memberSince,
-        isAdmin,
+        isAdmin: isAdmin === true || isAdmin === 'true',
         trailCount,
         bio
       }
@@ -116,12 +119,10 @@ const updateHiker = async (req, res) => {
 // DELETE a hiker
 const deleteHiker = async (req, res) => {
   try {
-    let hikerId;
-    try {
-      hikerId = new ObjectId(req.params.id);
-    } catch {
+    if (!ObjectId.isValid(req.params.id)) {
       return res.status(400).json({ message: 'Invalid hiker ID format.' });
     }
+    const hikerId = new ObjectId(req.params.id);
 
     const response = await mongodb.getDb().collection('hikers').deleteOne({ _id: hikerId });
 
