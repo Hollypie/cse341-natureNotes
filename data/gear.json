@@ -1,0 +1,86 @@
+[
+  {
+    "name": "Osprey Daylite Backpack",
+    "type": "Backpack",
+    "brand": "Osprey",
+    "weightOz": 16,
+    "category": "Hiking",
+    "condition": "Excellent",
+    "owner": "hollyb",
+    "purchaseDate": "2024-03-15",
+    "favorite": true,
+    "notes": "Lightweight and comfortable for short day hikes."
+  },
+  {
+    "name": "Merrell Moab 3 Mid Waterproof Boots",
+    "type": "Footwear",
+    "brand": "Merrell",
+    "weightOz": 32,
+    "category": "Hiking",
+    "condition": "Good",
+    "owner": "etaylor",
+    "purchaseDate": "2023-09-10",
+    "favorite": false,
+    "notes": "Durable boots that handle rocky terrain well."
+  },
+  {
+    "name": "Black Diamond Spot Headlamp",
+    "type": "Lighting",
+    "brand": "Black Diamond",
+    "weightOz": 3,
+    "category": "Camping",
+    "condition": "Like New",
+    "owner": "snguyen",
+    "purchaseDate": "2024-06-02",
+    "favorite": true,
+    "notes": "Bright beam with multiple light modes."
+  },
+  {
+    "name": "Jetboil Flash Cooking System",
+    "type": "Cooking Gear",
+    "brand": "Jetboil",
+    "weightOz": 13,
+    "category": "Camping",
+    "condition": "Excellent",
+    "owner": "mlopez",
+    "purchaseDate": "2023-12-21",
+    "favorite": true,
+    "notes": "Boils water fast—great for freeze-dried meals."
+  },
+  {
+    "name": "REI Half Dome 2 Plus Tent",
+    "type": "Shelter",
+    "brand": "REI",
+    "weightOz": 96,
+    "category": "Camping",
+    "condition": "Used",
+    "owner": "rkim",
+    "purchaseDate": "2022-07-08",
+    "favorite": false,
+    "notes": "Spacious and sturdy, slightly faded rainfly."
+  },
+  {
+    "name": "Therm-a-Rest NeoAir Sleeping Pad",
+    "type": "Sleeping Gear",
+    "brand": "Therm-a-Rest",
+    "weightOz": 14,
+    "category": "Camping",
+    "condition": "Good",
+    "owner": "mpatel",
+    "purchaseDate": "2024-02-12",
+    "favorite": true,
+    "notes": "Lightweight and warm, packs small."
+  },
+  {
+    "name": "Garmin eTrex 32x GPS",
+    "type": "Electronics",
+    "brand": "Garmin",
+    "weightOz": 5,
+    "category": "Navigation",
+    "condition": "Excellent",
+    "owner": "lharris",
+    "purchaseDate": "2023-10-05",
+    "favorite": false,
+    "notes": "Reliable GPS with long battery life."
+  }
+]

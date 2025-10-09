@@ -15,6 +15,14 @@
     {
       "name": "Wildlife",
       "description": "Endpoints to manage wildlife sightings"
+    },
+    {
+      "name": "Gear",
+      "description": "Endpoints to manage hiking and camping gear"
+    },
+    {
+      "name": "Hikers",
+      "description": "Endpoints to manage hiker profiles"
     }
   ],
   "schemes": [
@@ -43,25 +51,25 @@
               "type": "object",
               "properties": {
                 "species": {
-                  "example": "Mule Deer"
+                  "example": "any"
                 },
                 "location": {
-                  "example": "Rock Canyon, Provo, UT"
+                  "example": "any"
                 },
                 "date": {
-                  "example": "2025-10-07"
+                  "example": "any"
                 },
                 "time": {
-                  "example": "07:30"
+                  "example": "any"
                 },
                 "observer": {
-                  "example": "John Doe"
+                  "example": "any"
                 },
                 "count": {
-                  "example": 3
+                  "example": "any"
                 },
                 "trailId": {
-                  "example": "507f1f77bcf86cd799439011"
+                  "example": "any"
                 }
               }
             }
@@ -105,25 +113,25 @@
               "type": "object",
               "properties": {
                 "name": {
-                  "example": "Y Mountain Trail"
+                  "example": "any"
                 },
                 "location": {
-                  "example": "Provo, UT"
+                  "example": "any"
                 },
                 "distance_miles": {
-                  "example": 3.5
+                  "example": "any"
                 },
                 "difficulty": {
-                  "example": "Moderate"
+                  "example": "any"
                 },
                 "type": {
-                  "example": "Hiking"
+                  "example": "any"
                 },
                 "elevation_gain_ft": {
-                  "example": 800
+                  "example": "any"
                 },
                 "rating": {
-                  "example": 4.5
+                  "example": "any"
                 }
               }
             }
@@ -190,25 +198,25 @@
               "type": "object",
               "properties": {
                 "name": {
-                  "example": "Y Mountain Trail"
+                  "example": "any"
                 },
                 "location": {
-                  "example": "Provo, UT"
+                  "example": "any"
                 },
                 "distance_miles": {
-                  "example": 3.5
+                  "example": "any"
                 },
                 "difficulty": {
-                  "example": "Moderate"
+                  "example": "any"
                 },
                 "type": {
-                  "example": "Hiking"
+                  "example": "any"
                 },
                 "elevation_gain_ft": {
-                  "example": 800
+                  "example": "any"
                 },
                 "rating": {
-                  "example": 4.5
+                  "example": "any"
                 }
               }
             }
@@ -283,25 +291,25 @@
               "type": "object",
               "properties": {
                 "species": {
-                  "example": "Mule Deer"
+                  "example": "any"
                 },
                 "location": {
-                  "example": "Rock Canyon, Provo, UT"
+                  "example": "any"
                 },
                 "date": {
-                  "example": "2025-10-07"
+                  "example": "any"
                 },
                 "time": {
-                  "example": "07:30"
+                  "example": "any"
                 },
                 "observer": {
-                  "example": "John Doe"
+                  "example": "any"
                 },
                 "count": {
-                  "example": 3
+                  "example": "any"
                 },
                 "trailId": {
-                  "example": "507f1f77bcf86cd799439011"
+                  "example": "any"
                 }
               }
             }
@@ -313,6 +321,9 @@
           },
           "400": {
             "description": "Bad Request"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
           },
           "500": {
             "description": "Internal Server Error"
@@ -341,6 +352,9 @@
           "404": {
             "description": "Not Found"
           },
+          "422": {
+            "description": "Unprocessable Entity"
+          },
           "500": {
             "description": "Internal Server Error"
           }
@@ -362,25 +376,25 @@
               "type": "object",
               "properties": {
                 "species": {
-                  "example": "Mule Deer"
+                  "example": "any"
                 },
                 "location": {
-                  "example": "Rock Canyon, Provo, UT"
+                  "example": "any"
                 },
                 "date": {
-                  "example": "2025-10-07"
+                  "example": "any"
                 },
                 "time": {
-                  "example": "07:30"
+                  "example": "any"
                 },
                 "observer": {
-                  "example": "John Doe"
+                  "example": "any"
                 },
                 "count": {
-                  "example": 3
+                  "example": "any"
                 },
                 "trailId": {
-                  "example": "507f1f77bcf86cd799439011"
+                  "example": "any"
                 }
               }
             }
@@ -395,6 +409,9 @@
           },
           "404": {
             "description": "Not Found"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
           },
           "500": {
             "description": "Internal Server Error"
@@ -420,6 +437,347 @@
           },
           "404": {
             "description": "Not Found"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/gear/": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "any"
+                },
+                "type": {
+                  "example": "any"
+                },
+                "brand": {
+                  "example": "any"
+                },
+                "weightOz": {
+                  "example": "any"
+                },
+                "category": {
+                  "example": "any"
+                },
+                "condition": {
+                  "example": "any"
+                },
+                "owner": {
+                  "example": "any"
+                },
+                "purchaseDate": {
+                  "example": "any"
+                },
+                "favorite": {
+                  "example": "any"
+                },
+                "notes": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/gear/{id}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "weightOz": {
+                  "example": "any"
+                },
+                "favorite": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/hikers/": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "firstName": {
+                  "example": "any"
+                },
+                "lastName": {
+                  "example": "any"
+                },
+                "username": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                },
+                "location": {
+                  "example": "any"
+                },
+                "memberSince": {
+                  "example": "any"
+                },
+                "isAdmin": {
+                  "example": "any"
+                },
+                "trailCount": {
+                  "example": "any"
+                },
+                "bio": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/hikers/{id}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "isAdmin": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
           },
           "500": {
             "description": "Internal Server Error"
@@ -472,25 +830,25 @@
               "type": "object",
               "properties": {
                 "species": {
-                  "example": "Mule Deer"
+                  "example": "any"
                 },
                 "location": {
-                  "example": "Rock Canyon, Provo, UT"
+                  "example": "any"
                 },
                 "date": {
-                  "example": "2025-10-07"
+                  "example": "any"
                 },
                 "time": {
-                  "example": "07:30"
+                  "example": "any"
                 },
                 "observer": {
-                  "example": "John Doe"
+                  "example": "any"
                 },
                 "count": {
-                  "example": 3
+                  "example": "any"
                 },
                 "trailId": {
-                  "example": "507f1f77bcf86cd799439011"
+                  "example": "any"
                 }
               }
             }
@@ -552,29 +910,29 @@
           "type": "string",
           "example": "Y Mountain Trail"
         },
-        "type": {
+        "location": {
           "type": "string",
-          "example": "Hiking"
+          "example": "Provo, UT"
+        },
+        "distance_miles": {
+          "type": "number",
+          "example": 3.5
         },
         "difficulty": {
           "type": "string",
           "example": "Moderate"
         },
-        "length": {
-          "type": "number",
-          "example": 3.5
+        "type": {
+          "type": "string",
+          "example": "Hiking"
         },
-        "elevationGain": {
+        "elevation_gain_ft": {
           "type": "number",
           "example": 800
         },
-        "location": {
-          "type": "string",
-          "example": "Provo, UT"
-        },
-        "description": {
-          "type": "string",
-          "example": "Popular trail with great views of Provo and BYU."
+        "rating": {
+          "type": "number",
+          "example": 4.5
         }
       }
     },
@@ -585,10 +943,6 @@
           "type": "string",
           "example": "Mule Deer"
         },
-        "count": {
-          "type": "number",
-          "example": 3
-        },
         "location": {
           "type": "string",
           "example": "Rock Canyon, Provo, UT"
@@ -597,9 +951,107 @@
           "type": "string",
           "example": "2025-10-07"
         },
+        "time": {
+          "type": "string",
+          "example": "08:30"
+        },
+        "observer": {
+          "type": "string",
+          "example": "hollyb"
+        },
+        "count": {
+          "type": "number",
+          "example": 3
+        },
+        "trailId": {
+          "type": "string",
+          "example": "68e6abc12e7ccecfab50a123"
+        }
+      }
+    },
+    "Gear": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "Osprey Daylite Backpack"
+        },
+        "type": {
+          "type": "string",
+          "example": "Backpack"
+        },
+        "brand": {
+          "type": "string",
+          "example": "Osprey"
+        },
+        "weightOz": {
+          "type": "number",
+          "example": 16
+        },
+        "category": {
+          "type": "string",
+          "example": "Hiking"
+        },
+        "condition": {
+          "type": "string",
+          "example": "Excellent"
+        },
+        "owner": {
+          "type": "string",
+          "example": "hollyb"
+        },
+        "purchaseDate": {
+          "type": "string",
+          "example": "2024-03-15"
+        },
+        "favorite": {
+          "type": "boolean",
+          "example": true
+        },
         "notes": {
           "type": "string",
-          "example": "Saw a small group near the trailhead early morning."
+          "example": "Lightweight and comfortable for short day hikes."
+        }
+      }
+    },
+    "Hiker": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string",
+          "example": "Holly"
+        },
+        "lastName": {
+          "type": "string",
+          "example": "Briggs"
+        },
+        "username": {
+          "type": "string",
+          "example": "hollyb"
+        },
+        "email": {
+          "type": "string",
+          "example": "holly.briggs@example.com"
+        },
+        "location": {
+          "type": "string",
+          "example": "Orem, Utah"
+        },
+        "memberSince": {
+          "type": "string",
+          "example": "2024-03-05"
+        },
+        "isAdmin": {
+          "type": "boolean",
+          "example": true
+        },
+        "trailCount": {
+          "type": "number",
+          "example": 12
+        },
+        "bio": {
+          "type": "string",
+          "example": "Software engineering student who loves hiking and board games."
         }
       }
     }
