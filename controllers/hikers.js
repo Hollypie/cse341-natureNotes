@@ -81,28 +81,19 @@ const updateHiker = async (req, res) => {
     }
     const hikerId = new ObjectId(req.params.id);
 
-    const { firstName, lastName, username, email, location, memberSince, isAdmin, trailCount, bio } = req.body;
+    const updateFields = req.body;
 
-    if (
-      !firstName || !lastName || !username || !email || !location ||
-      !memberSince || isAdmin === undefined || isAdmin === null || !trailCount || !bio
-    ) {
-      return res.status(400).json({ message: 'All fields are required.' });
+    // If no fields are provided
+    if (Object.keys(updateFields).length === 0) {
+      return res.status(400).json({ message: 'At least one field is required to update.' });
     }
 
-    const updateDoc = {
-      $set: {
-        firstName,
-        lastName,
-        username,
-        email,
-        location,
-        memberSince,
-        isAdmin: isAdmin === true || isAdmin === 'true',
-        trailCount,
-        bio
-      }
-    };
+    // Convert boolean string to actual boolean
+    if (updateFields.isAdmin !== undefined) {
+      updateFields.isAdmin = updateFields.isAdmin === true || updateFields.isAdmin === 'true';
+    }
+
+    const updateDoc = { $set: updateFields };
 
     const response = await mongodb.getDb().collection('hikers').updateOne({ _id: hikerId }, updateDoc);
 

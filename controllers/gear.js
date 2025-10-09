@@ -1,3 +1,33 @@
+
+const mongodb = require('../data/database');
+const { ObjectId } = require('mongodb');
+
+// GET all gear
+const getAllGear = async (req, res) => {
+  try {
+    const gear = await mongodb.getDb().collection('gear').find().toArray();
+    res.status(200).json(gear);
+  } catch (err) {
+    res.status(500).json({ message: 'Fetching gear failed.' });
+  }
+};
+
+// GET a single gear by ID
+const getSingleGear = async (req, res) => {
+  try {
+    if (!ObjectId.isValid(req.params.id)) {
+      return res.status(400).json({ message: 'Invalid gear ID format.' });
+    }
+    const gearId = new ObjectId(req.params.id);
+    const gear = await mongodb.getDb().collection('gear').findOne({ _id: gearId });
+    if (!gear) return res.status(404).json({ message: 'Gear not found.' });
+
+    res.status(200).json(gear);
+  } catch (err) {
+    res.status(500).json({ message: 'Fetching gear failed.' });
+  }
+};
+
 // CREATE a new gear
 const createGear = async (req, res) => {
   try {
@@ -68,7 +98,8 @@ const updateGear = async (req, res) => {
       updateFields.favorite = updateFields.favorite === true || updateFields.favorite === 'true';
     }
 
-    const response = await mongodb.getDb()
+    const response = await mongodb
+      .getDb()
       .collection('gear')
       .updateOne({ _id: gearId }, { $set: updateFields });
 
@@ -82,15 +113,32 @@ const updateGear = async (req, res) => {
   }
 };
 
-
-    const response = await mongodb.getDb().collection('gear').updateOne({ _id: gearId }, updateDoc);
-
-    if (response.matchedCount === 0) {
-      return res.status(404).json({ message: 'Gear not found.' });
+// DELETE a gear
+const deleteGear = async (req, res) => {
+  try {
+    let gearId;
+    try {
+      gearId = new ObjectId(req.params.id);
+    } catch {
+      return res.status(400).json({ message: 'Invalid gear ID format.' });
     }
 
-    res.status(200).json({ message: 'Gear updated successfully.' });
+    const response = await mongodb.getDb().collection('gear').deleteOne({ _id: gearId });
+
+    if (response.deletedCount > 0) {
+      res.status(204).send();
+    } else {
+      res.status(404).json({ message: 'Gear not found.' });
+    }
   } catch (err) {
     res.status(500).json({ message: err.message || 'Unexpected error.' });
   }
+};
+
+module.exports = {
+  getAllGear,
+  getSingleGear,
+  createGear,
+  updateGear,
+  deleteGear
 };
