@@ -35,18 +35,29 @@ const createSighting = async (req, res) => {
   try {
     const { species, location, date, time, observer, count, trailId } = req.body;
 
-    if (!species || !location || !date || !time || !observer || count === undefined || !trailId) {
+    if (!species || !location || !date || !time || !observer || count == null || !trailId) {
       return res.status(400).json({ message: 'All fields are required.' });
+    }
+
+    if (isNaN(count)) {
+      return res.status(400).json({ message: 'Count must be a valid number.' });
+    }
+
+    let validTrailId;
+    try {
+      validTrailId = new ObjectId(trailId);
+    } catch {
+      return res.status(400).json({ message: 'Invalid trail ID format.' });
     }
 
     const sighting = {
       species,
       location,
-      date,
+      date, // or new Date(date) if using Date objects
       time,
       observer,
       count: Number(count),
-      trailId: Number(trailId)
+      trailId: validTrailId
     };
 
     const response = await mongodb.getDb().collection('wildlife').insertOne(sighting);
@@ -73,8 +84,19 @@ const updateSighting = async (req, res) => {
 
     const { species, location, date, time, observer, count, trailId } = req.body;
 
-    if (!species || !location || !date || !time || !observer || count === undefined || !trailId) {
+    if (!species || !location || !date || !time || !observer || count == null || !trailId) {
       return res.status(400).json({ message: 'All fields are required.' });
+    }
+
+    if (isNaN(count)) {
+      return res.status(400).json({ message: 'Count must be a valid number.' });
+    }
+
+    let validTrailId;
+    try {
+      validTrailId = new ObjectId(trailId);
+    } catch {
+      return res.status(400).json({ message: 'Invalid trail ID format.' });
     }
 
     const updateDoc = {
@@ -85,7 +107,7 @@ const updateSighting = async (req, res) => {
         time,
         observer,
         count: Number(count),
-        trailId: Number(trailId)
+        trailId: validTrailId
       }
     };
 
@@ -132,5 +154,3 @@ module.exports = {
   updateSighting,
   deleteSighting
 };
-
-// this is a test

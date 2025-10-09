@@ -33,18 +33,15 @@ const getSingleTrail = async (req, res) => {
 // CREATE a new trail
 const createTrail = async (req, res) => {
   try {
-    const {
-      name,
-      location,
-      distance_miles,
-      difficulty,
-      type,
-      elevation_gain_ft,
-      rating
-    } = req.body;
+    const { name, location, distance_miles, difficulty, type, elevation_gain_ft, rating } = req.body;
 
-    if (!name || !location || distance_miles === undefined || !difficulty || !type || elevation_gain_ft === undefined || rating === undefined) {
+    if (!name || !location || !difficulty || !type ||
+        distance_miles == null || elevation_gain_ft == null || rating == null) {
       return res.status(400).json({ message: 'All fields are required.' });
+    }
+
+    if (isNaN(distance_miles) || isNaN(elevation_gain_ft) || isNaN(rating)) {
+      return res.status(400).json({ message: 'Numeric fields must contain valid numbers.' });
     }
 
     const trail = {
@@ -81,8 +78,13 @@ const updateTrail = async (req, res) => {
 
     const { name, location, distance_miles, difficulty, type, elevation_gain_ft, rating } = req.body;
 
-    if (!name || !location || distance_miles === undefined || !difficulty || !type || elevation_gain_ft === undefined || rating === undefined) {
+    if (!name || !location || !difficulty || !type ||
+        distance_miles == null || elevation_gain_ft == null || rating == null) {
       return res.status(400).json({ message: 'All fields are required.' });
+    }
+
+    if (isNaN(distance_miles) || isNaN(elevation_gain_ft) || isNaN(rating)) {
+      return res.status(400).json({ message: 'Numeric fields must contain valid numbers.' });
     }
 
     const updateDoc = {

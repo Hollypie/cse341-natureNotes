@@ -1,0 +1,90 @@
+[
+  {
+    "firstName": "Holly",
+    "lastName": "Briggs",
+    "username": "hollyb",
+    "email": "holly.briggs@example.com",
+    "location": "Orem, Utah",
+    "memberSince": "2024-03-05",
+    "isAdmin": true,
+    "trailCount": 12,
+    "bio": "Software engineering student who loves hiking and board games."
+  },
+  {
+    "firstName": "Evan",
+    "lastName": "Taylor",
+    "username": "etaylor",
+    "email": "evan.taylor@example.com",
+    "location": "Boise, Idaho",
+    "memberSince": "2024-06-10",
+    "isAdmin": false,
+    "trailCount": 8,
+    "bio": "Weekend hiker and amateur photographer."
+  },
+  {
+    "firstName": "Sophie",
+    "lastName": "Nguyen",
+    "username": "snguyen",
+    "email": "sophie.nguyen@example.com",
+    "location": "Provo, Utah",
+    "memberSince": "2024-08-02",
+    "isAdmin": false,
+    "trailCount": 5,
+    "bio": "Loves short day hikes and nature journaling."
+  },
+  {
+    "firstName": "Marcus",
+    "lastName": "Lopez",
+    "username": "mlopez",
+    "email": "marcus.lopez@example.com",
+    "location": "Denver, Colorado",
+    "memberSince": "2024-09-14",
+    "isAdmin": false,
+    "trailCount": 17,
+    "bio": "Trail runner and map nerd."
+  },
+  {
+    "firstName": "Rachel",
+    "lastName": "Kim",
+    "username": "rkim",
+    "email": "rachel.kim@example.com",
+    "location": "Salt Lake City, Utah",
+    "memberSince": "2023-11-20",
+    "isAdmin": false,
+    "trailCount": 23,
+    "bio": "Backpacker who enjoys long weekend trips."
+  },
+  {
+    "firstName": "Dylan",
+    "lastName": "Reed",
+    "username": "dreed",
+    "email": "dylan.reed@example.com",
+    "location": "Rexburg, Idaho",
+    "memberSince": "2024-01-12",
+    "isAdmin": false,
+    "trailCount": 4,
+    "bio": "New to hiking—learning gear and navigation."
+  },
+  {
+    "firstName": "Maya",
+    "lastName": "Patel",
+    "username": "mpatel",
+    "email": "maya.patel@example.com",
+    "location": "Ogden, Utah",
+    "memberSince": "2022-07-30",
+    "isAdmin": false,
+    "trailCount": 36,
+    "bio": "Enjoys birdwatching and wildflower ID."
+  },
+  {
+    "firstName": "Leo",
+    "lastName": "Harris",
+    "username": "lharris",
+    "email": "leo.harris@example.com",
+    "location": "Seattle, Washington",
+    "memberSince": "2024-04-22",
+    "isAdmin": false,
+    "trailCount": 9,
+    "bio": "Prefers rainy hikes and good coffee afterward."
+  }
+]
