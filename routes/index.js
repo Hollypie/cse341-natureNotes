@@ -17,5 +17,7 @@ router.get('/', (req, res) => {
 
 router.use('/trails', require('./trails'));
 router.use('/wildlife', require('./wildlife'));
+router.use('/gear', require('./gear'));
+router.use('/hikers', require('./hikers'));
 
 module.exports = router;
