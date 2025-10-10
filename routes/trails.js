@@ -46,7 +46,6 @@ router.get('/:id', trailIdParamRules(), validate, trailsController.getSingleTrai
 // #swagger.responses[422] = { description: 'Validation error' }
 // #swagger.responses[500] = { description: 'Internal server error' }
 router.post('/', authMiddleware, createTrailRules(), validate, trailsController.createTrail);
-// router.post('/:id', requireAuth, trailIdParamRules(), updateTrailRules(), validate, trailsController.createTrail);
 
 /**
  * PUT update a trail by ID
@@ -67,7 +66,6 @@ router.post('/', authMiddleware, createTrailRules(), validate, trailsController.
 // #swagger.responses[422] = { description: 'Validation error' }
 // #swagger.responses[500] = { description: 'Internal server error' }
 router.put('/:id', authMiddleware, trailIdParamRules(), updateTrailRules(), validate, trailsController.updateTrail);
-// router.put('/:id', requireAuth, trailIdParamRules(), updateTrailRules(), validate, trailsController.updateTrail);
 
 /**
  * DELETE a trail by ID
@@ -81,6 +79,5 @@ router.put('/:id', authMiddleware, trailIdParamRules(), updateTrailRules(), vali
 // #swagger.responses[404] = { description: 'Trail not found' }
 // #swagger.responses[500] = { description: 'Internal server error' }
 router.delete('/:id', authMiddleware, trailIdParamRules(), validate, trailsController.deleteTrail);
-// router.delete('/:id', requireAuth, trailIdParamRules(), validate, trailsController.deleteTrail);
 
 module.exports = router;

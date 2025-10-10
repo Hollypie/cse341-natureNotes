@@ -3,7 +3,7 @@ const router = express.Router();
 const gearController = require('../controllers/gear');
 const { createGearRules, updateGearRules, gearIdParamRules } = require('../middleware/gear.js');
 const { validate } = require('../middleware/validator.js');
-// const { requireAuth } = require('../middleware/authenticate.js');
+const authMiddleware = require('../middleware/auth');
 
 /**
  * GET all gear
@@ -45,8 +45,7 @@ router.get('/:id', gearIdParamRules(), validate, gearController.getSingleGear);
 // #swagger.responses[401] = { description: 'Unauthorized' }
 // #swagger.responses[422] = { description: 'Validation error' }
 // #swagger.responses[500] = { description: 'Internal server error' }
-router.post('/', createGearRules(), validate, gearController.createGear);
-// router.post('/:id', requireAuth, gearIdParamRules(), updateGearRules(), validate, gearController.createGear);
+router.post('/', authMiddleware, createGearRules(), validate, gearController.createGear);
 
 /**
  * PUT update a gear by ID
@@ -66,8 +65,7 @@ router.post('/', createGearRules(), validate, gearController.createGear);
 // #swagger.responses[404] = { description: 'Gear not found' }
 // #swagger.responses[422] = { description: 'Validation error' }
 // #swagger.responses[500] = { description: 'Internal server error' }
-router.put('/:id', gearIdParamRules(), updateGearRules(), validate, gearController.updateGear);
-// router.put('/:id', requireAuth, gearIdParamRules(), updateGearRules(), validate, gearController.updateGear);
+router.put('/:id', authMiddleware, gearIdParamRules(), updateGearRules(), validate, gearController.updateGear);
 
 /**
  * DELETE a gear by ID
@@ -80,7 +78,6 @@ router.put('/:id', gearIdParamRules(), updateGearRules(), validate, gearControll
 // #swagger.responses[401] = { description: 'Unauthorized' }
 // #swagger.responses[404] = { description: 'Gear not found' }
 // #swagger.responses[500] = { description: 'Internal server error' }
-router.delete('/:id', gearIdParamRules(), validate, gearController.deleteGear);
-// router.delete('/:id', requireAuth, gearIdParamRules(), validate, gearController.deleteGear);
+router.delete('/:id', authMiddleware, gearIdParamRules(), validate, gearController.deleteGear);
 
 module.exports = router;
