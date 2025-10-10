@@ -43,25 +43,25 @@
               "type": "object",
               "properties": {
                 "species": {
-                  "example": "Mule Deer"
+                  "example": "any"
                 },
                 "location": {
-                  "example": "Rock Canyon, Provo, UT"
+                  "example": "any"
                 },
                 "date": {
-                  "example": "2025-10-07"
+                  "example": "any"
                 },
                 "time": {
-                  "example": "07:30"
+                  "example": "any"
                 },
                 "observer": {
-                  "example": "John Doe"
+                  "example": "any"
                 },
                 "count": {
-                  "example": 3
+                  "example": "any"
                 },
                 "trailId": {
-                  "example": "507f1f77bcf86cd799439011"
+                  "example": "any"
                 }
               }
             }
@@ -108,25 +108,25 @@
               "type": "object",
               "properties": {
                 "name": {
-                  "example": "Y Mountain Trail"
+                  "example": "any"
                 },
                 "location": {
-                  "example": "Provo, UT"
+                  "example": "any"
                 },
                 "distance_miles": {
-                  "example": 3.5
+                  "example": "any"
                 },
                 "difficulty": {
-                  "example": "Moderate"
+                  "example": "any"
                 },
                 "type": {
-                  "example": "Hiking"
+                  "example": "any"
                 },
                 "elevation_gain_ft": {
-                  "example": 800
+                  "example": "any"
                 },
                 "rating": {
-                  "example": 4.5
+                  "example": "any"
                 }
               }
             }
@@ -196,25 +196,25 @@
               "type": "object",
               "properties": {
                 "name": {
-                  "example": "Y Mountain Trail"
+                  "example": "any"
                 },
                 "location": {
-                  "example": "Provo, UT"
+                  "example": "any"
                 },
                 "distance_miles": {
-                  "example": 3.5
+                  "example": "any"
                 },
                 "difficulty": {
-                  "example": "Moderate"
+                  "example": "any"
                 },
                 "type": {
-                  "example": "Hiking"
+                  "example": "any"
                 },
                 "elevation_gain_ft": {
-                  "example": 800
+                  "example": "any"
                 },
                 "rating": {
-                  "example": 4.5
+                  "example": "any"
                 }
               }
             }
@@ -295,25 +295,25 @@
               "type": "object",
               "properties": {
                 "species": {
-                  "example": "Mule Deer"
+                  "example": "any"
                 },
                 "location": {
-                  "example": "Rock Canyon, Provo, UT"
+                  "example": "any"
                 },
                 "date": {
-                  "example": "2025-10-07"
+                  "example": "any"
                 },
                 "time": {
-                  "example": "07:30"
+                  "example": "any"
                 },
                 "observer": {
-                  "example": "John Doe"
+                  "example": "any"
                 },
                 "count": {
-                  "example": 3
+                  "example": "any"
                 },
                 "trailId": {
-                  "example": "507f1f77bcf86cd799439011"
+                  "example": "any"
                 }
               }
             }
@@ -383,25 +383,25 @@
               "type": "object",
               "properties": {
                 "species": {
-                  "example": "Mule Deer"
+                  "example": "any"
                 },
                 "location": {
-                  "example": "Rock Canyon, Provo, UT"
+                  "example": "any"
                 },
                 "date": {
-                  "example": "2025-10-07"
+                  "example": "any"
                 },
                 "time": {
-                  "example": "07:30"
+                  "example": "any"
                 },
                 "observer": {
-                  "example": "John Doe"
+                  "example": "any"
                 },
                 "count": {
-                  "example": 3
+                  "example": "any"
                 },
                 "trailId": {
-                  "example": "507f1f77bcf86cd799439011"
+                  "example": "any"
                 }
               }
             }
@@ -482,10 +482,10 @@
               "type": "object",
               "properties": {
                 "name": {
-                  "example": "Y Mountain Trail"
+                  "example": "any"
                 },
                 "type": {
-                  "example": "Hiking"
+                  "example": "any"
                 },
                 "brand": {
                   "example": "any"
@@ -861,25 +861,25 @@
               "type": "object",
               "properties": {
                 "species": {
-                  "example": "Mule Deer"
+                  "example": "any"
                 },
                 "location": {
-                  "example": "Rock Canyon, Provo, UT"
+                  "example": "any"
                 },
                 "date": {
-                  "example": "2025-10-07"
+                  "example": "any"
                 },
                 "time": {
-                  "example": "07:30"
+                  "example": "any"
                 },
                 "observer": {
-                  "example": "John Doe"
+                  "example": "any"
                 },
                 "count": {
-                  "example": 3
+                  "example": "any"
                 },
                 "trailId": {
-                  "example": "507f1f77bcf86cd799439011"
+                  "example": "any"
                 }
               }
             }
