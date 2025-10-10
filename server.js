@@ -4,8 +4,7 @@ const cors = require('cors');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger_output.json');
 const mongodb = require('./data/database');
-// const passport = require('./config/passport');
-// const sessionConfig = require('./config/session');
+const googleAuth = require('./config/google-oauth');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -14,15 +13,13 @@ const port = process.env.PORT || 3000;
 // app.set('trust proxy', 1);
 
 // Middleware
-// app.use(cors({ origin: true, credentials: true }));
+app.use(cors({ origin: true, credentials: true }));
 app.use(express.json());
-// app.use(sessionConfig);
-// app.use(passport.initialize());
-// app.use(passport.session());
+
+app.use(googleAuth);
 
 // Routes
 app.use('/', require('./routes/index'));
-// app.use('/', require('./routes/auth'));
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // MongoDB connection and start server
