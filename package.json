@@ -6,6 +6,8 @@
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
+    "swagger": "node swagger",
+    "swagger-fix": "node swagger.js && node fix-swagger.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "generate-secret": "node -e \"console.log(require('crypto').randomBytes(64).toString('hex'))\""
   },

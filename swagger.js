@@ -1,11 +1,7 @@
 const swaggerAutogen = require('swagger-autogen')();
 
 const outputFile = './swagger_output.json';
-const endpointsFiles = [
-  './routes/index.js',
-  './routes/trails.js',
-  './routes/wildlife.js'
-];
+const endpointsFiles = ['./routes/index.js'];
 
 const doc = {
   info: {
@@ -22,6 +18,14 @@ const doc = {
     {
       name: 'Wildlife',
       description: 'Endpoints to manage wildlife sightings'
+    },
+    {
+      name: 'Gear',
+      description: 'Endpoints to manage hiking and camping gear'
+    },
+    {
+      name: 'Hikers',
+      description: 'Endpoints to manage hiker profiles'
     }
   ],
   definitions: {
