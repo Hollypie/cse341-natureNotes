@@ -44,6 +44,29 @@ const doc = {
       location: "Rock Canyon, Provo, UT",
       date: "2025-10-07",
       notes: "Saw a small group near the trailhead early morning."
+    },
+    Gear: {
+      name: "Osprey Daylite Backpack",
+      type: "Backpack",
+      brand: "Osprey",
+      weightOz: 16,
+      category: "Hiking",
+      condition: "Excellent",
+      owner: "hollyb",
+      purchaseDate: "2024-03-15",
+      favorite: true,
+      notes: "Lightweight and comfortable for short day hikes."
+    },
+    Hiker: {
+      firstName: "Holly",
+      lastName: "Briggs",
+      username: "hollyb",
+      email: "holly.briggs@example.com",
+      location: "Orem, Utah",
+      memberSince: "2024-03-05",
+      isAdmin: true,
+      trailCount: 12,
+      bio: "Software engineering student who loves hiking and board games."
     }
   }
 };
