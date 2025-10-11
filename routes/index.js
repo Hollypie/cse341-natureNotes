@@ -1,6 +1,12 @@
 const router = require('express').Router();
+const trailRoutes = require('./trails');
+const wildlifeRoutes = require('./wildlife');
+const gearRoutes = require('./gear');
+const hikersRoutes = require('./hikers');
 
 router.get('/', (req, res) => {
+  /* #swagger.ignore = true */
+
   if (!req.user && !req.session.user)
     return res.send(`
       <h1>⛺ Welcome to Nature Notes API</h1>
@@ -16,9 +22,9 @@ router.get('/', (req, res) => {
   `);
 });
 
-router.use('/trails', require('./trails'));
-router.use('/wildlife', require('./wildlife'));
-router.use('/gear', require('./gear'));
-router.use('/hikers', require('./hikers'));
+router.use('/trails', trailRoutes);
+router.use('/wildlife', wildlifeRoutes);
+router.use('/gear', gearRoutes);
+router.use('/hikers', hikersRoutes);
 
 module.exports = router;
