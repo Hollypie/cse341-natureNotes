@@ -5,7 +5,7 @@
     "description": "API for managing trails logs, gear, and wildlife sightings",
     "version": "1.0.0"
   },
-  "host": "cse341-naturenotes.onrender.com",
+  "host": "cse341-nature-working.onrender.com",
   "basePath": "/",
   "tags": [
     {
