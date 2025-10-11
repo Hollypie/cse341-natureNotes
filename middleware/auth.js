@@ -1,5 +1,5 @@
 const authMiddleware = (req, res, next) => {
-    if (!req.user && !req.session.user) {
+    if (!req.isAuthenticated()) {
         return res.status(401).json({ message: 'Unauthorized' });
     }
 

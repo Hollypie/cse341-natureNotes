@@ -5,7 +5,6 @@ const session = require('express-session');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 
 const mongodb = require('../data/database');
-const { ObjectId } = require('mongodb');
 
 const router = express.Router();
 
@@ -63,12 +62,8 @@ router.get('/logout', (req, res, next) => {
 router.get('/auth/google/callback',
   passport.authenticate('google', {
     failureRedirect: '/api-docs',
-    session: false,
-  }),
-  (req, res) => {
-    req.session.user = req.user;
-    res.redirect('/');
-  }
+    successRedirect: '/'
+  })
 );
 
 module.exports = router;

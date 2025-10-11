@@ -10,7 +10,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 // Trust proxy for secure cookies
-// app.set('trust proxy', 1);
+app.set('trust proxy', 1);
 
 // Middleware
 app.use(cors({ origin: true, credentials: true }));
