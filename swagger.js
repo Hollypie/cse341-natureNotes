@@ -31,25 +31,27 @@ const doc = {
   definitions: {
     Trail: {
       name: "Y Mountain Trail",
-      type: "Hiking",
-      difficulty: "Moderate",
-      length: 3.5,       // miles
-      elevationGain: 800, // feet
       location: "Provo, UT",
-      description: "Popular trail with great views of Provo and BYU."
+      distance_miles: 3.5,
+      difficulty: "Moderate",
+      type: "Hiking",
+      elevation_gain_ft: 800,
+      rating: 4.7
     },
     WildlifeSighting: {
       species: "Mule Deer",
-      count: 3,
       location: "Rock Canyon, Provo, UT",
       date: "2025-10-07",
-      notes: "Saw a small group near the trailhead early morning."
+      time: "10:30 am",
+      observer: "hollyb",
+      count: 3,
+      trailId: 1
     },
     Gear: {
       name: "Osprey Daylite Backpack",
       type: "Backpack",
       brand: "Osprey",
-      weightOz: 16,
+      weightOz: 16.2,
       category: "Hiking",
       condition: "Excellent",
       owner: "hollyb",
