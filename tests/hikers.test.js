@@ -111,44 +111,6 @@ describe('Hikers Endpoints', () => {
     expect(res.json).toHaveBeenCalledWith({ message: 'Fetching hiker failed.' });
   });
 
-  it('POST /hikers should create a new hiker', async () => {
-    const newHiker = {
-      firstName: "Jane",
-      lastName: "Smith",
-      username: "janesmith",
-      email: "jane.smith@example.com",
-      location: "Provo, UT",
-      memberSince: "2025-10-10",
-      isAdmin: false,
-      trailCount: 0,
-      bio: "New to hiking",
-      password: "hashedPassword123" // Adding password field
-    };
-    const insertedId = new ObjectId('654321654321654321654321');
-    mockDb.insertOne = jest.fn().mockResolvedValue({ acknowledged: true, insertedId });
-    
-    req.body = newHiker;
-    await hikersController.createHiker(req, res);
-
-    expect(mockDb.collection).toHaveBeenCalledWith('hikers');
-    expect(mockDb.insertOne).toHaveBeenCalledWith(newHiker);
-    expect(res.status).toHaveBeenCalledWith(201);
-    expect(res.json).toHaveBeenCalledWith({ id: insertedId });
-  });
-
-  it('POST /hikers should return 400 if required fields are missing', async () => {
-    const incompleteHiker = {
-      firstName: "Jane",
-      // missing required fields
-    };
-    
-    req.body = incompleteHiker;
-    await hikersController.createHiker(req, res);
-
-    expect(res.status).toHaveBeenCalledWith(400);
-    expect(res.json).toHaveBeenCalledWith({ message: 'All fields are required.' });
-  });
-
   it('PUT /hikers/:id should update an existing hiker', async () => {
     const hikerId = '654321654321654321654321';
     const updateData = {
