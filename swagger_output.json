@@ -738,29 +738,29 @@
           "type": "string",
           "example": "Y Mountain Trail"
         },
-        "type": {
+        "location": {
           "type": "string",
-          "example": "Hiking"
+          "example": "Provo, UT"
+        },
+        "distance_miles": {
+          "type": "number",
+          "example": 3.5
         },
         "difficulty": {
           "type": "string",
           "example": "Moderate"
         },
-        "length": {
-          "type": "number",
-          "example": 3.5
+        "type": {
+          "type": "string",
+          "example": "Hiking"
         },
-        "elevationGain": {
+        "elevation_gain_ft": {
           "type": "number",
           "example": 800
         },
-        "location": {
-          "type": "string",
-          "example": "Provo, UT"
-        },
-        "description": {
-          "type": "string",
-          "example": "Popular trail with great views of Provo and BYU."
+        "rating": {
+          "type": "number",
+          "example": 4.7
         }
       }
     },
@@ -771,10 +771,6 @@
           "type": "string",
           "example": "Mule Deer"
         },
-        "count": {
-          "type": "number",
-          "example": 3
-        },
         "location": {
           "type": "string",
           "example": "Rock Canyon, Provo, UT"
@@ -783,9 +779,21 @@
           "type": "string",
           "example": "2025-10-07"
         },
-        "notes": {
+        "time": {
           "type": "string",
-          "example": "Saw a small group near the trailhead early morning."
+          "example": "10:30 am"
+        },
+        "observer": {
+          "type": "string",
+          "example": "hollyb"
+        },
+        "count": {
+          "type": "number",
+          "example": 3
+        },
+        "trailId": {
+          "type": "number",
+          "example": 1
         }
       }
     },
@@ -806,7 +814,7 @@
         },
         "weightOz": {
           "type": "number",
-          "example": 16
+          "example": 16.2
         },
         "category": {
           "type": "string",
