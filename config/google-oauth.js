@@ -22,23 +22,8 @@ passport.use(new GoogleStrategy({
   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
   callbackURL: process.env.GOOGLE_CALLBACK_URL,
 }, (accessToken, refreshToken, profile, done) => {
-  mongodb.getDb().collection('users').updateOne(
-    { googleId: profile.id },
-    {
-      $set: {
-        googleId: profile.id,
-        fullName: profile.displayName,
-        emails: profile.emails,
-        accessToken: accessToken,
-        refreshToken: refreshToken,
-        lastLogin: new Date(),
-      }
-    },
-    { upsert: true }
-  ).then(() => {
-    console.log('Google user logged:', profile.displayName);
-    return done(null, profile);
-  }).catch(err => done(err, null));
+  console.log('Google user logged:', profile.displayName);
+  return done(null, profile);
 }));
 
 passport.serializeUser((user, done) => done(null, user));
